@@ -1,0 +1,58 @@
+syntax="proto3";
+
+package proto;
+
+service Bio {
+    rpc CreateBiodata(CreateBiodataRequest) returns (CreateBiodataResponse);
+    rpc ReadBiodata(ReadBiodataRequest) returns (ReadBiodataResponse);
+    rpc UpdateBiodata(UpdateBiodataRequest) returns (UpdateBiodataResponse);
+    rpc DeleteBiodata(DeleteBiodataRequest) returns (DeleteBiodataResponse);
+    rpc ListBiodata(ListBiodataRequest) returns (ListBiodataResponse);
+}
+
+message Biodata {
+    int32 nik = 1;
+    string nama = 2;
+    string jk = 3;
+    string alamat = 4;
+}
+
+message CreateBiodataRequest {
+    Biodata biodata = 1;
+}
+
+message CreateBiodataResponse {
+    Biodata biodata = 1;
+}
+
+message ReadBiodataRequest {
+    int32 nik = 1;
+}
+
+message ReadBiodataResponse {
+    Biodata biodata = 1;
+}
+
+message UpdateBiodataRequest {
+    Biodata biodata = 1;
+}
+
+message UpdateBiodataResponse {
+    Biodata biodata = 1;
+}
+
+message DeleteBiodataRequest {
+    int32 nik = 1;
+}
+
+message DeleteBiodataResponse {
+
+}
+
+message ListBiodataRequest {
+    int32 limit  = 1;
+}
+
+message ListBiodataResponse {
+    repeated Biodata biodata = 1;
+}
